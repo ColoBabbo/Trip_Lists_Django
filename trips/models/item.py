@@ -2,7 +2,7 @@ from django.db import models
 from .list import List
 
 class Item(models.Model):
-    list = models.ForeignKey(List, on_delete=models.DO_NOTHING)
+    list = models.ForeignKey(List, related_name="items", on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     quantity = models.FloatField(max_length=45)
     unit = models.CharField(max_length=45)

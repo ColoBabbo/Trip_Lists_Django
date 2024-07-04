@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Trip, List, Item
+from pprint import pprint
 
 # Create your views here.
 def index(request):
@@ -9,15 +11,22 @@ def index(request):
     return render(request, 'index.html', context)
 
 def all_trips(request):
-    return HttpResponse('All Trips Here')
+    all_trips = Trip.objects.all()
+    context = {'all_trips' : all_trips}
+    return render(request, 'trips/show_all_trips.html', context)
+
+def add_trip(request):
+    return HttpResponse('Add a New Trip')
 
 def show_trip(request, trip_id):
-    return HttpResponse("This is Trip %s" % trip_id)
+    this_trip = Trip.objects.get(id=trip_id)
+    context = {"trip_id":trip_id, "this_trip" : this_trip, }
+    return render(request, 'trips/show_one_trip.html', context)
 
-def show_packing_list(request, packing_list_id):
+def show_list(request, trip_id, list_id):
     response = "Packing List %s"
-    return HttpResponse(response % packing_list_id)
+    return HttpResponse(response % trip_id, list_id)
 
-def show_item(request, packing_list_id, item_id):
+def show_item(request, trip_id, list_id, item_id):
     response = "Item %s detail view "
-    return HttpResponse(response % item_id, packing_list_id)
+    return HttpResponse(response % [trip_id, list_id, item_id])

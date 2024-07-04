@@ -1,0 +1,36 @@
+Members:
+    Andrew Naves – Python
+        Front End | Logic | GitHub
+    Andrew Washburn – MERN | SQL
+        DB | Server
+    Donovan Allen – MERN | AWS
+        API | Wireframe
+
+Description:
+    Our app will use AWS to host pictures of dogs and their owners who don't clean up after their dogs. 
+    Our plan is to allow users to upload pictures of offenders, and possibly their "evidence". Users will also be able to pinpoint the scene of the crime through integration with google maps API.
+    Incidences of inappropriate doggy damage will display on our landing page. 
+
+GitHub Repo:
+    https://github.com/ColoBabbo/Shame_On_Poo.git
+
+Features:
+    .gitignore file in root folder
+    All of CRUD* on a non-User table
+        Users can CRUD incident reports that they make.
+    Users can RU reports created by other users.
+    CSS implemented, and possibly other static content
+    Data is validated upon create and edit, errors show
+        Upload file type
+        Minimum input length for text 
+    Login and Registration with validations
+    Protected routes
+        Active user (stored in Session) checked against content creator before rendering template
+    Application is responsive
+    Application uses a CSS framework such as Bootstrap
+    Application is publicly deployed
+    Application features a third-party API
+    File Upload
+    Stretch:
+        Project uses Django instead of Flask
+        Address input validation
